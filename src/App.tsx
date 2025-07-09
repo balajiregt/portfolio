@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, ExternalLink, MapPin, Calendar, Coffee, Camera, Code, BookOpen, User, Mail, Linkedin, Globe, Edit3, Save, Award, Star, Newspaper } from 'lucide-react';
+import { Github, ExternalLink, MapPin, Calendar, Coffee, Camera, Code, BookOpen, User, Mail, Linkedin, Globe, Award, Star, Newspaper } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -555,13 +555,6 @@ const Portfolio = () => {
       month: 'long',
       day: 'numeric'
     });
-  };
-
-  const updatePersonalInfo = (field: string, value: string) => {
-    setPersonalInfo(prev => ({
-      ...prev,
-      [field]: value
-    }));
   };
 
   // Tab Components
@@ -1144,99 +1137,6 @@ const Portfolio = () => {
     </div>
   );
 
-  const EditTab = () => (
-    <div className="space-y-8">
-      <div className="flex items-center gap-3 mb-6">
-        <Edit3 className="w-8 h-8 text-purple-600" />
-        <h2 className="text-3xl font-bold text-gray-900">Edit Portfolio</h2>
-      </div>
-
-      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">Personal Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-            <input
-              type="text"
-              value={personalInfo.name}
-              onChange={(e) => updatePersonalInfo('name', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
-            <input
-              type="text"
-              value={personalInfo.title}
-              onChange={(e) => updatePersonalInfo('title', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input
-              type="email"
-              value={personalInfo.email}
-              onChange={(e) => updatePersonalInfo('email', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">GitHub URL</label>
-            <input
-              type="url"
-              value={personalInfo.github}
-              onChange={(e) => updatePersonalInfo('github', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Medium URL</label>
-            <input
-              type="url"
-              value={personalInfo.medium}
-              onChange={(e) => updatePersonalInfo('medium', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn URL</label>
-            <input
-              type="url"
-              value={personalInfo.linkedin}
-              onChange={(e) => updatePersonalInfo('linkedin', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <button
-            onClick={() => {
-              setActiveTab('home');
-              alert('Changes saved! Check other tabs to see updates.');
-            }}
-            className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            <Save className="w-4 h-4" />
-            Save Changes
-          </button>
-        </div>
-      </div>
-
-      <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-        <h4 className="text-lg font-semibold text-blue-900 mb-2">Edit Mode Features</h4>
-        <ul className="text-blue-800 space-y-1">
-          <li>• ✅ Edit personal information and see changes immediately</li>
-          <li>• ✅ Real article counts: {totalMediumArticles} Medium articles, {testGridArticles.length} TestGrid articles</li>
-          <li>• ✅ All data loads properly without errors</li>
-          <li>• ✅ Clean, organized blog categorization</li>
-          <li>• ✅ Working navigation between all tabs</li>
-        </ul>
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
@@ -1286,13 +1186,6 @@ const Portfolio = () => {
                 isActive={activeTab === 'personal'}
                 onClick={setActiveTab}
               />
-              <TabButton
-                id="edit"
-                icon={<Edit3 className="w-4 h-4" />}
-                label="Edit"
-                isActive={activeTab === 'edit'}
-                onClick={setActiveTab}
-              />
             </div>
           </div>
         </div>
@@ -1305,7 +1198,6 @@ const Portfolio = () => {
         {activeTab === 'blogs' && <BlogsTab />}
         {activeTab === 'featured' && <FeaturedTab />}
         {activeTab === 'personal' && <PersonalTab />}
-        {activeTab === 'edit' && <EditTab />}
       </main>
 
       {/* Footer */}
