@@ -63,6 +63,13 @@ const Portfolio = () => {
       language: "JavaScript",
       updated_at: "2025-01-01T10:00:00Z",
       html_url: "https://github.com/balajiregt/Cypress_practice"
+    },
+    {
+      name: "CypressTestProject",
+      description: "Cypress test project",
+      language: "JavaScript",
+      updated_at: "2025-01-01T10:00:00Z",
+      html_url: "https://github.com/balajiregt/CypressTestProject"
     }
   ];
 
@@ -701,6 +708,22 @@ const Portfolio = () => {
       <div className="flex items-center gap-3 mb-6">
         <Github className="w-8 h-8 text-blue-600" />
         <h2 className="text-3xl font-bold text-gray-900">GitHub Repositories</h2>
+      </div>
+
+      {/* Sample Note */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <div className="flex items-start gap-3">
+          <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span className="text-white text-xs font-bold">i</span>
+          </div>
+          <div>
+            <h4 className="font-semibold text-blue-900 mb-1">Sample Repository Selection</h4>
+            <p className="text-blue-800 text-sm">
+              This is a curated selection of my key GitHub repositories showcasing my expertise in test automation frameworks.
+              For the complete list of projects, visit my <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">GitHub profile</a>.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
