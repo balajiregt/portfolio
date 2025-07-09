@@ -1085,8 +1085,9 @@ const Portfolio = () => {
         <div className="text-center">
           <h4 className="text-xl font-semibold text-gray-900 mb-2">Industry-Recognized Testing Expert</h4>
           <p className="text-gray-600 mb-4">
-            My expertise in testing tools and frameworks has been consistently featured across industry newsletters and platform publications.
-            From newsletter features to LambdaTest LinkedIn Pulse publications, I specialize in Playwright, Cypress, flaky test solutions, and modern automation frameworks.
+            Featured in 11+ industry newsletters including Software Testing Weekly, Software Testing Notes, TestGrid.io, and LambdaTest LinkedIn Pulse.
+            Specializing in Playwright automation frameworks, Cypress best practices, visual testing solutions, and API testing strategies.
+            Author of 40+ technical articles with focus on flaky test resolution and modern automation patterns.
           </p>
           <div className="flex justify-center gap-4">
             <a
