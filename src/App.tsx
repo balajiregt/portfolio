@@ -1083,7 +1083,7 @@ const Portfolio = () => {
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
         <div className="text-center">
-          <h4 className="text-xl font-semibold text-gray-900 mb-2">Industry-Recognized Testing Expert</h4>
+          <h4 className="text-xl font-semibold text-gray-900 mb-2">Test Automation Specialist & Technical Writer</h4>
           <p className="text-gray-600 mb-4">
             Featured in 11+ industry newsletters including Software Testing Weekly, Software Testing Notes, TestGrid.io, and LambdaTest LinkedIn Pulse.
             Specializing in Playwright automation frameworks, Cypress best practices, visual testing solutions, and API testing strategies.
