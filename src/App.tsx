@@ -1,75 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import { Github, ExternalLink, MapPin, Calendar, Coffee, Camera, Code, BookOpen, User, Mail, Linkedin, Globe, Award, Star, Newspaper } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, ExternalLink, Calendar, Coffee, Camera, Code, BookOpen, User, Mail, Linkedin, Globe, Award, Star, Newspaper, Briefcase, Rocket, Layers, PenTool } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState('home');
-  const [loading, setLoading] = useState(false);
-  const [personalInfo, setPersonalInfo] = useState({
+  const personalInfo = {
     name: "Balaji K",
-    title: "Test Automation Engineer & Technical Writer",
+    title: "SDET Leader | Product Development",
+    tagline: "12+ years building automation systems, quality platforms, AI-assisted workflows, and privacy-first products while growing toward engineering leadership impact.",
     email: "kbalaji.kks@gmail.com",
     github: "https://github.com/balajiregt",
     medium: "https://medium.com/@kbalaji.kks",
-    linkedin: "https://linkedin.com/in/kbalaji-kks"
-  });
+    devto: "https://dev.to/buildwithbalaji",
+    linkedin: "https://linkedin.com/in/kbalaji-kks",
+    x: "https://x.com/buildwithbalaji"
+  };
+  const publicGithubRepoCount = 15;
+  const mediumFollowerCount = 290;
+
+  const innovationInitiatives = [
+    {
+      title: "Copilot Agent Test Data Creation",
+      focus: "Prompt + markdown instruction system",
+      description: "Designing reusable markdown instruction packs and prompt-chat workflows that guide Copilot agents to generate domain-aware test data, edge cases, API payloads, and scenario variants.",
+      impact: "Reduces repetitive test-data setup, improves scenario coverage, and turns domain knowledge into reusable team assets.",
+      tags: ["Copilot agents", "Prompt engineering", "Markdown instructions", "Test data strategy"]
+    },
+    {
+      title: "Jira Sprint Metrics via Copilot Connectors",
+      focus: "Delivery intelligence and engineering visibility",
+      description: "Initiating connector-driven workflows that read Jira sprint signals and summarize delivery metrics, carry-over patterns, blockers, and sprint health for faster team discussions.",
+      impact: "Shows engineering-management readiness by connecting quality, flow, predictability, and stakeholder communication.",
+      tags: ["Copilot connectors", "Jira metrics", "Sprint health", "Engineering operations"]
+    }
+  ];
 
   // GitHub Repositories
   const githubRepos = [
     {
+      name: "myFinance",
+      description: "Finfolio: self-hosted, single-file Indian portfolio tracker with AI insights, Gmail expense tracking, live NAV sync, gold tracking, reminders, and privacy-first local storage.",
+      language: "HTML",
+      updated_at: "2026-05-06T09:36:24Z",
+      html_url: "https://github.com/balajiregt/myFinance"
+    },
+    {
+      name: "plawright-role-aware-mockserver",
+      description: "Role-aware mockserver pattern for scalable Playwright E2E tests across admin, viewer, and VIP workflows.",
+      language: "JavaScript",
+      updated_at: "2026-06-02T13:14:32Z",
+      html_url: "https://github.com/balajiregt/plawright-role-aware-mockserver"
+    },
+    {
       name: "playwright_pom_fixtures_modular_framework_template",
       description: "Playwright page object model with modular classes for actions, assertions and incorporating fixtures handling setup and teardown efficiently.",
-      language: "TypeScript",
-      updated_at: "2025-06-15T10:30:00Z",
+      language: "JavaScript",
+      updated_at: "2026-03-21T07:42:28Z",
       html_url: "https://github.com/balajiregt/playwright_pom_fixtures_modular_framework_template"
-    },
-    {
-      name: "RestAssured_Practice",
-      description: "REST API automation testing practice using RestAssured library with Java",
-      language: "Java",
-      updated_at: "2025-05-10T09:15:00Z",
-      html_url: "https://github.com/balajiregt/RestAssured_Practice"
-    },
-    {
-      name: "Java_Practice",
-      description: "Java programming practice and automation testing utilities",
-      language: "Java",
-      updated_at: "2025-04-25T16:45:00Z",
-      html_url: "https://github.com/balajiregt/Java_Practice"
     },
     {
       name: "Playwright_test_functional",
       description: "Sanity test cases",
       language: "JavaScript",
-      updated_at: "2025-01-15T12:00:00Z",
+      updated_at: "2025-10-05T04:31:40Z",
       html_url: "https://github.com/balajiregt/Playwright_test_functional"
     },
     {
-      name: "playwright_test_practice",
-      description: "Playwright testing practice projects including functional tests and POM framework",
+      name: "Playwright_test_NFT",
+      description: "Visual testing, accessibility testing, and resilience testing examples.",
       language: "JavaScript",
-      updated_at: "2025-01-10T14:30:00Z",
-      html_url: "https://github.com/balajiregt/playwright_test_practice"
+      updated_at: "2023-10-25T10:22:04Z",
+      html_url: "https://github.com/balajiregt/Playwright_test_NFT"
     },
     {
       name: "Playwright_test_API",
       description: "API test cases using Playwright for REST API testing",
       language: "JavaScript",
-      updated_at: "2025-01-05T11:20:00Z",
+      updated_at: "2023-10-25T10:26:46Z",
       html_url: "https://github.com/balajiregt/Playwright_test_API"
     },
     {
       name: "Cypress_practice",
       description: "Cypress end-to-end testing practice and examples",
-      language: "JavaScript",
-      updated_at: "2025-01-01T10:00:00Z",
+      language: "HTML",
+      updated_at: "2023-08-30T16:18:04Z",
       html_url: "https://github.com/balajiregt/Cypress_practice"
     },
     {
-      name: "CypressTestProject",
-      description: "Cypress test project",
-      language: "JavaScript",
-      updated_at: "2025-01-01T10:00:00Z",
-      html_url: "https://github.com/balajiregt/CypressTestProject"
+      name: "RestAssured_Practice",
+      description: "REST API automation testing practice using RestAssured and Java.",
+      language: "HTML",
+      updated_at: "2023-08-16T23:00:11Z",
+      html_url: "https://github.com/balajiregt/RestAssured_Practice"
     }
   ];
 
@@ -95,8 +116,106 @@ const Portfolio = () => {
     }
   ];
 
+  const productLaunches = [
+    {
+      name: "Finfolio",
+      status: "Open-source product",
+      period: "Launched Apr 2026",
+      audience: "Indian investors who want full-control personal finance tracking",
+      description: "A single-HTML-file portfolio tracker covering mutual funds, FDs, physical gold, stocks, post office schemes, insurance, loans, real estate, retirement accounts, expenses, and AI portfolio analysis.",
+      role: "Product builder, full-stack developer, QA architect, and launch writer",
+      stack: ["HTML", "JavaScript", "AMFI NAV", "OAuth", "Gemini AI", "Supabase optional backup"],
+      metrics: ["10 asset classes", "1 HTML file", "No backend required", "Browser-local privacy"],
+      links: [
+        { label: "GitHub", url: "https://github.com/balajiregt/myFinance" },
+        { label: "Medium launch", url: "https://medium.com/@kbalaji.kks/i-built-a-complete-portfolio-tracker-for-indian-investors-in-a-single-html-file-9f9d2da733f7" },
+        { label: "DEV launch", url: "https://dev.to/buildwithbalaji/one-html-file-no-backend-no-sign-up-your-data-never-leaves-your-browser-3oj9" }
+      ]
+    },
+    {
+      name: "WealthOS Lite",
+      status: "Free Notion template",
+      period: "Launched May 2026",
+      audience: "Non-technical users who want a clean finance system inside Notion",
+      description: "A lightweight Notion-based wealth and budget dashboard evolved from the Finfolio architecture, focused on simple databases, formulas, grouped views, charts, and zero backend setup.",
+      role: "Product manager, template designer, systems thinker, and creator-marketplace shipper",
+      stack: ["Notion", "Formula design", "Database views", "Portfolio tracking", "Budget tracking"],
+      metrics: ["2 databases", "3 pages", "No Zapier or backend", "Marketplace-ready packaging"],
+      links: [
+        { label: "DEV story", url: "https://dev.to/buildwithbalaji/from-a-single-html-file-finance-app-to-a-notion-template-lessons-in-shipping-for-users-4588" },
+        { label: "Medium story", url: "https://medium.com/@kbalaji.kks/from-a-single-html-finance-app-to-an-automated-notion-portfolio-tracker-4f97266ae54f" },
+        { label: "Template", url: "https://stirring-heart-701.notion.site/WealthOS-Lite-34b3afb1ab1a81bf98f6e72a26551f50" }
+      ]
+    },
+    {
+      name: "WealthOS Pro",
+      status: "Local sync app",
+      period: "Built May 2026",
+      audience: "Investors who want Notion as the interface with automated local portfolio refreshes",
+      description: "A local-first Notion portfolio tracker with a small Node.js sync app that updates prices, mutual fund NAVs, gold prices, SIP dates, portfolio metrics, and reminders without Zapier, Make, or a hosted backend.",
+      role: "Product engineer, sync architecture designer, QA tester, and packaging owner",
+      stack: ["Notion API", "Node.js 18+", "Yahoo Finance", "Finnhub", "mfapi.in", "gold-api.com"],
+      metrics: ["Double-click launcher", "No npm install", "No WealthOS cloud", "User-owned data"],
+      links: [
+        { label: "Product page", url: "https://balajibuilder.gumroad.com/l/wealthos" },
+        { label: "DEV build story", url: "https://dev.to/buildwithbalaji/adding-live-sync-to-a-notion-finance-template-without-zapier-make-or-a-backend-published-false-1pom" },
+        { label: "Finfolio base", url: "https://github.com/balajiregt/myFinance" }
+      ]
+    }
+  ];
+
+  const devArticles = [
+    {
+      title: "Scaling Playwright E2E Tests with a Role-Aware Mockserver",
+      date: "2026-06-03",
+      description: "A practical architecture for deterministic role-based E2E tests using Playwright, Koa, signed tokens, feature flags, and backend error simulation.",
+      link: "https://dev.to/buildwithbalaji/scaling-playwright-e2e-tests-with-a-role-aware-mockserver-4fi3"
+    },
+    {
+      title: "Adding live sync to a Notion finance template without Zapier, Make, or a backend",
+      date: "2026-05-21",
+      description: "How WealthOS Pro adds a double-click local Node.js sync app for Notion portfolio prices, SIP dates, metrics, and alerts without a hosted backend.",
+      link: "https://dev.to/buildwithbalaji/adding-live-sync-to-a-notion-finance-template-without-zapier-make-or-a-backend-published-false-1pom"
+    },
+    {
+      title: "From a single-HTML-file finance app to a Notion template",
+      date: "2026-05-07",
+      description: "The product lesson behind turning Finfolio's complete finance tracker into the simpler WealthOS Lite Notion template.",
+      link: "https://dev.to/buildwithbalaji/from-a-single-html-file-finance-app-to-a-notion-template-lessons-in-shipping-for-users-4588"
+    },
+    {
+      title: "One HTML file. No backend. No sign-up. Your data never leaves your browser.",
+      date: "2026-05-01",
+      description: "A launch note for Finfolio's privacy-first single-file personal finance tracker.",
+      link: "https://dev.to/buildwithbalaji/one-html-file-no-backend-no-sign-up-your-data-never-leaves-your-browser-3oj9"
+    }
+  ];
+
   // Medium Articles (Categorized) - Updated with all articles and links
   const mediumArticles = {
+    productEngineering: [
+      {
+        title: "Scaling Playwright E2E Tests with a Role-Aware Mockserver",
+        category: "SDET Architecture",
+        date: "2026-06-03",
+        description: "A full implementation pattern for role-aware UI automation using Playwright, a Koa mockserver, signed JWT roles, and feature flag/error scenarios.",
+        link: "https://medium.com/@kbalaji.kks/scaling-playwright-e2e-tests-with-a-role-aware-mockserver-97d658399ef2"
+      },
+      {
+        title: "From a Single HTML Finance App to an Automated Notion Portfolio Tracker",
+        category: "Product Engineering",
+        date: "2026-05-22",
+        description: "How Finfolio's architecture evolved into a simpler Notion-first product system for a broader non-technical audience.",
+        link: "https://medium.com/@kbalaji.kks/from-a-single-html-finance-app-to-an-automated-notion-portfolio-tracker-4f97266ae54f"
+      },
+      {
+        title: "I Built a Complete Portfolio Tracker for Indian Investors in a Single HTML File",
+        category: "Product Launch",
+        date: "2026-04-13",
+        description: "The launch story behind Finfolio: a privacy-first, single-file finance tracker covering Indian asset classes, live sync, reminders, and AI analysis.",
+        link: "https://medium.com/@kbalaji.kks/i-built-a-complete-portfolio-tracker-for-indian-investors-in-a-single-html-file-9f9d2da733f7"
+      }
+    ],
     apiTesting: [
       {
         title: "How to Use Playwright for Advanced Network Interception",
@@ -400,19 +519,21 @@ const Portfolio = () => {
       { name: "Playwright" },
       { name: "Cypress.io" },
       { name: "Selenium WebDriver" },
-      { name: "AI Testing Solutions" }
+      { name: "Mockservers & Test Strategy" }
     ],
     programming: [
       { name: "JavaScript" },
       { name: "TypeScript" },
       { name: "Java" },
-      { name: "HTML/CSS" }
+      { name: "HTML/CSS" },
+      { name: "Product Prototyping" }
     ],
     tools: [
       { name: "RestAssured" },
       { name: "Postman" },
       { name: "Git/GitHub" },
-      { name: "MCP & Browser Agents" }
+      { name: "Notion Systems" },
+      { name: "AI-assisted Development" }
     ]
   };
 
@@ -540,21 +661,6 @@ const Portfolio = () => {
       directLink: "https://softwaretestingweekly.com/issues/158#tools"
     }
   ];
-  const travelPlaces = [
-    { name: "Kerala Backwaters", country: "India", year: 2024, description: "Serene houseboat experience" },
-    { name: "Mysore", country: "India", year: 2025, description: "Famous for Mysore Palace, silk sarees, and sandalwood" },
-    { name: "Coorg", country: "India", year: 2025, description: "Beautiful coffee plantations and misty hills" },
-    { name: "Kodaikanal", country: "India", year: 2024, description: "Beautiful hill station with a lake and forests" }
-  ];
-
-  // Hobbies
-  const hobbies = [
-    { icon: <Code className="w-6 h-6" />, name: "Coding", description: "Building innovative test automation solutions" },
-    { icon: <MapPin className="w-6 h-6" />, name: "Driving", description: "Exploring new places and enjoying road trips" },
-    { icon: <BookOpen className="w-6 h-6" />, name: "Technical Writing", description: "Sharing knowledge through blogs" },
-    { icon: <Coffee className="w-6 h-6" />, name: "Playing Cricket", description: "Weekend cricket matches and staying active" }
-  ];
-
   // Helper functions
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -590,17 +696,83 @@ const Portfolio = () => {
     </button>
   );
 
+  const ProductCard = ({ product }: { product: typeof productLaunches[number] }) => (
+    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow">
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <h3 className="text-2xl font-bold text-gray-900">{product.name}</h3>
+            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">{product.status}</span>
+          </div>
+          <p className="text-sm text-gray-500">{product.period}</p>
+        </div>
+        <Rocket className="w-7 h-7 text-blue-600 flex-shrink-0" />
+      </div>
+
+      <p className="text-gray-700 mb-4">{product.description}</p>
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+        <div className="text-sm font-semibold text-gray-900 mb-1">Built for</div>
+        <p className="text-sm text-gray-600 mb-3">{product.audience}</p>
+        <div className="text-sm font-semibold text-gray-900 mb-1">My role</div>
+        <p className="text-sm text-gray-600">{product.role}</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 mb-4">
+        {product.metrics.map((metric, index) => (
+          <div key={index} className="bg-blue-50 text-blue-800 text-sm font-medium px-3 py-2 rounded-lg">
+            {metric}
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-2 mb-5">
+        {product.stack.map((item, index) => (
+          <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        {product.links.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
+          >
+            <ExternalLink className="w-4 h-4" />
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+
   const HomeTab = () => (
     <div className="space-y-8">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-8 rounded-xl">
         <div className="flex flex-col md:flex-row items-center gap-6">
-          <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-            <User className="w-16 h-16 text-gray-600" />
+          <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center p-1 shadow-xl flex-shrink-0">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/profile-avatar.png`}
+              alt="Balaji K profile avatar"
+              className="w-full h-full rounded-full object-cover"
+            />
           </div>
           <div className="text-center md:text-left">
             <h1 className="text-4xl font-bold mb-2">{personalInfo.name}</h1>
             <p className="text-xl mb-4">{personalInfo.title}</p>
+            <p className="text-blue-100 max-w-3xl mb-5">{personalInfo.tagline}</p>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start mb-5">
+              <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">SDET strategy</span>
+              <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Product engineering</span>
+              <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Engineering leadership path</span>
+              <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">AI workflow innovation</span>
+              <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Technical writing</span>
+            </div>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white bg-opacity-20 px-3 py-1 rounded-lg hover:bg-opacity-30 transition-all">
@@ -611,6 +783,11 @@ const Portfolio = () => {
                 className="flex items-center gap-2 bg-white bg-opacity-20 px-3 py-1 rounded-lg hover:bg-opacity-30 transition-all">
                 <BookOpen className="w-4 h-4" />
                 Medium
+              </a>
+              <a href={personalInfo.devto} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-white bg-opacity-20 px-3 py-1 rounded-lg hover:bg-opacity-30 transition-all">
+                <PenTool className="w-4 h-4" />
+                DEV
               </a>
               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-white bg-opacity-20 px-3 py-1 rounded-lg hover:bg-opacity-30 transition-all">
@@ -627,14 +804,77 @@ const Portfolio = () => {
         </div>
       </div>
 
+      {/* About Developer */}
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex items-center gap-3 mb-4">
+          <Briefcase className="w-8 h-8 text-blue-600" />
+          <h2 className="text-2xl font-bold text-gray-900">About Developer</h2>
+        </div>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          I bring an SDET foundation into product development and engineering leadership: designing reliable test architecture,
+          building working products, managing delivery trade-offs, and explaining systems clearly for teams and users.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h3 className="font-semibold text-blue-900 mb-2">SDET Experience</h3>
+            <p className="text-sm text-blue-800">Playwright, Cypress, API automation, mockserver strategy, visual testing, accessibility, and CI reliability.</p>
+          </div>
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <h3 className="font-semibold text-green-900 mb-2">Product Development</h3>
+            <p className="text-sm text-green-800">Shipping privacy-first tools like Finfolio, WealthOS Lite, and WealthOS Pro from problem discovery through launch content.</p>
+          </div>
+          <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+            <h3 className="font-semibold text-purple-900 mb-2">Engineering Leadership Path</h3>
+            <p className="text-sm text-purple-800">Creating management-level impact through scoped systems, readable architecture, delivery visibility, and reusable engineering patterns.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Innovation Initiatives */}
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex items-center gap-3 mb-4">
+          <Rocket className="w-8 h-8 text-indigo-600" />
+          <h2 className="text-2xl font-bold text-gray-900">AI & Engineering Operations Innovations</h2>
+        </div>
+        <p className="text-gray-700 leading-relaxed mb-6">
+          These initiatives show how I am extending SDET experience into product-quality strategy, team enablement,
+          and engineering leadership impact through practical AI-assisted workflows.
+        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {innovationInitiatives.map((initiative, index) => (
+            <div key={index} className="bg-indigo-50 p-5 rounded-lg border border-indigo-200">
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">{initiative.title}</h3>
+                  <p className="text-sm font-medium text-indigo-700">{initiative.focus}</p>
+                </div>
+                <Star className="w-5 h-5 text-indigo-600 flex-shrink-0" />
+              </div>
+              <p className="text-sm text-gray-700 mb-3">{initiative.description}</p>
+              <div className="bg-white bg-opacity-70 border border-indigo-100 rounded-lg p-3 mb-4">
+                <span className="text-sm font-semibold text-gray-900">Value: </span>
+                <span className="text-sm text-gray-700">{initiative.impact}</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {initiative.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="bg-white text-indigo-800 px-2 py-1 rounded-full text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <div className="flex items-center gap-3">
             <Github className="w-8 h-8 text-blue-600" />
             <div>
-              <div className="text-2xl font-bold text-gray-900">{githubRepos.length}+</div>
-              <div className="text-gray-600">Repositories</div>
+              <div className="text-2xl font-bold text-gray-900">{publicGithubRepoCount}+</div>
+              <div className="text-gray-600">GitHub Repos</div>
             </div>
           </div>
         </div>
@@ -649,6 +889,15 @@ const Portfolio = () => {
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <div className="flex items-center gap-3">
+            <PenTool className="w-8 h-8 text-purple-600" />
+            <div>
+              <div className="text-2xl font-bold text-gray-900">{devArticles.length}</div>
+              <div className="text-gray-600">DEV Posts</div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <div className="flex items-center gap-3">
             <Award className="w-8 h-8 text-yellow-600" />
             <div>
               <div className="text-2xl font-bold text-gray-900">{featuredArticles.length}+</div>
@@ -658,12 +907,25 @@ const Portfolio = () => {
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
           <div className="flex items-center gap-3">
-            <MapPin className="w-8 h-8 text-red-600" />
+            <Rocket className="w-8 h-8 text-red-600" />
             <div>
-              <div className="text-2xl font-bold text-gray-900">{travelPlaces.length}+</div>
-              <div className="text-gray-600">Places Visited</div>
+              <div className="text-2xl font-bold text-gray-900">{productLaunches.length}</div>
+              <div className="text-gray-600">Products</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Product Launches */}
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex items-center gap-3 mb-6">
+          <Layers className="w-8 h-8 text-green-600" />
+          <h2 className="text-2xl font-bold text-gray-900">Recent Product Launches</h2>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {productLaunches.map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
         </div>
       </div>
 
@@ -675,7 +937,7 @@ const Portfolio = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h3 className="text-lg font-semibold text-purple-700 mb-3">🎭 Test Automation</h3>
+            <h3 className="text-lg font-semibold text-purple-700 mb-3">Test Automation</h3>
             {skills.automation.map((skill, index) => (
               <div key={index} className="mb-2">
                 <span className="text-sm text-gray-700 bg-purple-50 px-3 py-1 rounded-full">{skill.name}</span>
@@ -683,7 +945,7 @@ const Portfolio = () => {
             ))}
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-blue-700 mb-3">💻 Programming</h3>
+            <h3 className="text-lg font-semibold text-blue-700 mb-3">Programming & Product</h3>
             {skills.programming.map((skill, index) => (
               <div key={index} className="mb-2">
                 <span className="text-sm text-gray-700 bg-blue-50 px-3 py-1 rounded-full">{skill.name}</span>
@@ -691,13 +953,60 @@ const Portfolio = () => {
             ))}
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-green-700 mb-3">🔧 Modern Tools & AI</h3>
+            <h3 className="text-lg font-semibold text-green-700 mb-3">Modern Tools & AI</h3>
             {skills.tools.map((skill, index) => (
               <div key={index} className="mb-2">
                 <span className="text-sm text-gray-700 bg-green-50 px-3 py-1 rounded-full">{skill.name}</span>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const ProductsTab = () => (
+    <div className="space-y-8">
+      <div className="flex items-center gap-3 mb-6">
+        <Rocket className="w-8 h-8 text-green-600" />
+        <h2 className="text-3xl font-bold text-gray-900">Product Engineering</h2>
+      </div>
+
+      <div className="bg-gradient-to-r from-green-600 to-blue-700 text-white p-6 rounded-xl">
+        <h3 className="text-2xl font-bold mb-3">From SDET systems to shipped products</h3>
+        <p className="text-green-50 max-w-4xl">
+          My recent work shows the same engineering discipline in two directions: robust automation architecture for teams,
+          and user-facing products for personal finance workflows. Finfolio is the full-control code product, WealthOS Lite is
+          the simpler Notion starting point, and WealthOS Pro adds a local sync app for users who want automation without giving up data ownership.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {productLaunches.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </div>
+
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex items-center gap-3 mb-5">
+          <Layers className="w-7 h-7 text-indigo-600" />
+          <h3 className="text-2xl font-bold text-gray-900">AI Workflow Innovations</h3>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {innovationInitiatives.map((initiative, index) => (
+            <div key={index} className="border border-gray-200 rounded-lg p-4">
+              <h4 className="font-bold text-gray-900 mb-1">{initiative.title}</h4>
+              <p className="text-sm font-medium text-indigo-700 mb-2">{initiative.focus}</p>
+              <p className="text-sm text-gray-600 mb-3">{initiative.impact}</p>
+              <div className="flex flex-wrap gap-2">
+                {initiative.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="bg-indigo-50 text-indigo-800 px-2 py-1 rounded-full text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -719,7 +1028,7 @@ const Portfolio = () => {
           <div>
             <h4 className="font-semibold text-blue-900 mb-1">Sample Repository Selection</h4>
             <p className="text-blue-800 text-sm">
-              This is a curated selection of my key GitHub repositories showcasing my expertise in test automation frameworks.
+              This is a curated selection of {githubRepos.length} repositories from {publicGithubRepoCount}+ public GitHub repos, covering product builds and test automation frameworks.
               For the complete list of projects, visit my <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">GitHub profile</a>.
             </p>
           </div>
@@ -763,6 +1072,85 @@ const Portfolio = () => {
       <div className="flex items-center gap-3 mb-6">
         <BookOpen className="w-8 h-8 text-green-600" />
         <h2 className="text-3xl font-bold text-gray-900">Technical Articles ({totalMediumArticles} Articles)</h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white p-5 rounded-lg shadow-md border border-gray-200">
+          <div className="text-2xl font-bold text-gray-900">{totalMediumArticles}+</div>
+          <div className="text-gray-600">Medium Articles</div>
+        </div>
+        <div className="bg-white p-5 rounded-lg shadow-md border border-gray-200">
+          <div className="text-2xl font-bold text-gray-900">{mediumFollowerCount}</div>
+          <div className="text-gray-600">Medium Followers</div>
+        </div>
+        <div className="bg-white p-5 rounded-lg shadow-md border border-gray-200">
+          <div className="text-2xl font-bold text-gray-900">{devArticles.length}</div>
+          <div className="text-gray-600">DEV Community Posts</div>
+        </div>
+      </div>
+
+      {/* Product Engineering Articles */}
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <Rocket className="w-6 h-6 text-green-600" />
+          Product Engineering & SDET Leadership ({mediumArticles.productEngineering.length} Articles)
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {mediumArticles.productEngineering.map((article, index) => (
+            <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <div className="flex justify-between items-start mb-2">
+                <a
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-gray-900 text-sm hover:text-green-600 transition-colors cursor-pointer flex items-start gap-2"
+                >
+                  {article.title}
+                  <ExternalLink className="w-3 h-3 mt-0.5 text-green-600" />
+                </a>
+                <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded ml-2">{article.category}</span>
+              </div>
+              <p className="text-gray-600 text-xs mb-2">{article.description}</p>
+              <span className="text-xs text-gray-500">{formatDate(article.date)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DEV Community */}
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <div className="flex items-center justify-between gap-4 mb-4">
+          <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+            <PenTool className="w-6 h-6 text-purple-600" />
+            DEV Community
+          </h3>
+          <a
+            href={personalInfo.devto}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-800 text-sm font-medium"
+          >
+            <ExternalLink className="w-4 h-4" />
+            @buildwithbalaji
+          </a>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {devArticles.map((article, index) => (
+            <div key={index} className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-gray-900 text-sm hover:text-purple-600 transition-colors cursor-pointer flex items-start gap-2 mb-2"
+              >
+                {article.title}
+                <ExternalLink className="w-3 h-3 mt-0.5 text-purple-600" />
+              </a>
+              <p className="text-gray-600 text-xs mb-2">{article.description}</p>
+              <span className="text-xs text-gray-500">{formatDate(article.date)}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* API Testing Articles */}
@@ -957,8 +1345,8 @@ const Portfolio = () => {
             <div className="text-yellow-100">Platform Publications</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2">2024</div>
-            <div className="text-yellow-100">Active Recognition Year</div>
+            <div className="text-3xl font-bold mb-2">2026</div>
+            <div className="text-yellow-100">Active Portfolio Year</div>
           </div>
         </div>
       </div>
@@ -1062,7 +1450,7 @@ const Portfolio = () => {
               </li>
               <li className="flex items-center gap-2 text-gray-700">
                 <Award className="w-4 h-4 text-yellow-600" />
-                <span>Guest author on TestGrid.io Blog (4 articles)</span>
+                <span>Guest author on TestGrid.io Blog ({testGridArticles.length} articles)</span>
               </li>
             </ul>
           </div>
@@ -1083,11 +1471,11 @@ const Portfolio = () => {
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
         <div className="text-center">
-          <h4 className="text-xl font-semibold text-gray-900 mb-2">Test Automation Specialist & Technical Writer</h4>
+          <h4 className="text-xl font-semibold text-gray-900 mb-2">SDET Leader, Product Builder & Technical Writer</h4>
           <p className="text-gray-600 mb-4">
             Featured in 11+ industry newsletters including Software Testing Weekly, Software Testing Notes, TestGrid.io, and LambdaTest LinkedIn Pulse.
-            Specializing in Playwright automation frameworks, Cypress best practices, visual testing solutions, and API testing strategies.
-            Author of 40+ technical articles with focus on flaky test resolution and modern automation patterns.
+            Specializing in Playwright automation frameworks, Cypress best practices, product-quality strategy, and privacy-first product development.
+            Author of {totalMediumArticles}+ Medium articles with newer writing on Finfolio, WealthOS Lite, WealthOS Pro, and scalable SDET architecture.
           </p>
           <div className="flex justify-center gap-4">
             <a
@@ -1112,74 +1500,32 @@ const Portfolio = () => {
     </div>
   );
 
-  const PersonalTab = () => (
-    <div className="space-y-8">
-      {/* Hobbies */}
-      <div>
-        <div className="flex items-center gap-3 mb-6">
-          <Coffee className="w-8 h-8 text-orange-600" />
-          <h2 className="text-3xl font-bold text-gray-900">Hobbies & Interests</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {hobbies.map((hobby, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <div className="flex items-start gap-4">
-                <div className="text-orange-600">{hobby.icon}</div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{hobby.name}</h3>
-                  <p className="text-gray-600">{hobby.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Travel */}
-      <div>
-        <div className="flex items-center gap-3 mb-6">
-          <MapPin className="w-8 h-8 text-red-600" />
-          <h2 className="text-3xl font-bold text-gray-900">Travel Adventures</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {travelPlaces.map((place, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{place.name}</h3>
-                  <p className="text-gray-600">{place.country}</p>
-                </div>
-                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
-                  {place.year}
-                </span>
-              </div>
-              <p className="text-gray-600 text-sm">{place.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-lg">BK</span>
               </div>
-              <h1 className="text-xl font-bold text-gray-900">Portfolio Newsletter V1</h1>
+              <h1 className="text-xl font-bold text-gray-900">SDET Leader & Product Engineering Portfolio</h1>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-2">
               <TabButton
                 id="home"
                 icon={<User className="w-4 h-4" />}
                 label="Home"
                 isActive={activeTab === 'home'}
+                onClick={setActiveTab}
+              />
+              <TabButton
+                id="products"
+                icon={<Rocket className="w-4 h-4" />}
+                label="Products"
+                isActive={activeTab === 'products'}
                 onClick={setActiveTab}
               />
               <TabButton
@@ -1203,13 +1549,6 @@ const Portfolio = () => {
                 isActive={activeTab === 'featured'}
                 onClick={setActiveTab}
               />
-              <TabButton
-                id="personal"
-                icon={<MapPin className="w-4 h-4" />}
-                label="Personal"
-                isActive={activeTab === 'personal'}
-                onClick={setActiveTab}
-              />
             </div>
           </div>
         </div>
@@ -1218,17 +1557,17 @@ const Portfolio = () => {
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         {activeTab === 'home' && <HomeTab />}
+        {activeTab === 'products' && <ProductsTab />}
         {activeTab === 'projects' && <ProjectsTab />}
         {activeTab === 'blogs' && <BlogsTab />}
         {activeTab === 'featured' && <FeaturedTab />}
-        {activeTab === 'personal' && <PersonalTab />}
       </main>
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 mt-16">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="text-center">
-            <p className="text-gray-600">© 2025 {personalInfo.name}. Portfolio V1 - Clean & Hyperlinked</p>
+            <p className="text-gray-600">© 2026 {personalInfo.name}. SDET leadership, product engineering, and technical writing portfolio.</p>
             <div className="flex justify-center gap-6 mt-4">
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-700">
@@ -1237,6 +1576,10 @@ const Portfolio = () => {
               <a href={personalInfo.medium} target="_blank" rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-700">
                 <BookOpen className="w-5 h-5" />
+              </a>
+              <a href={personalInfo.devto} target="_blank" rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-700">
+                <PenTool className="w-5 h-5" />
               </a>
               <a href={`mailto:${personalInfo.email}`}
                 className="text-gray-500 hover:text-gray-700">
