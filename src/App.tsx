@@ -14,28 +14,35 @@ const Portfolio = () => {
     linkedin: "https://linkedin.com/in/kbalaji-kks",
     x: "https://x.com/buildwithbalaji"
   };
-  const publicGithubRepoCount = 15;
+  const publicGithubRepoCount = 16;
   const mediumFollowerCount = 290;
 
   const innovationInitiatives = [
     {
-      title: "Copilot Agent Test Data Creation",
-      focus: "Prompt + markdown instruction system",
-      description: "Designing reusable markdown instruction packs and prompt-chat workflows that guide Copilot agents to generate domain-aware test data, edge cases, API payloads, and scenario variants.",
-      impact: "Reduces repetitive test-data setup, improves scenario coverage, and turns domain knowledge into reusable team assets.",
-      tags: ["Copilot agents", "Prompt engineering", "Markdown instructions", "Test data strategy"]
+      title: "Agentic API Automation Workspace",
+      focus: "Context-aware QA framework for coding agents",
+      description: "Built a portable workspace pattern that gives coding agents small task briefs, generated repo context, reusable QA playbooks, OpenAPI/service evidence, and verification guardrails.",
+      impact: "Helps teams preserve QA intent, reduce tribal knowledge, and add or modify API automation with clearer product and contract feedback.",
+      tags: ["Agentic QA", "MCP-ready context", "OpenAPI evidence", "API automation"]
     },
     {
-      title: "Jira Sprint Metrics via Copilot Connectors",
-      focus: "Delivery intelligence and engineering visibility",
-      description: "Initiating connector-driven workflows that read Jira sprint signals and summarize delivery metrics, carry-over patterns, blockers, and sprint health for faster team discussions.",
-      impact: "Shows engineering-management readiness by connecting quality, flow, predictability, and stakeholder communication.",
-      tags: ["Copilot connectors", "Jira metrics", "Sprint health", "Engineering operations"]
+      title: "Role-Aware Playwright Mockserver",
+      focus: "Deterministic E2E framework architecture",
+      description: "Designed a Playwright + mockserver pattern for role-based journeys, signed token simulation, feature flags, downstream failures, and backend error states.",
+      impact: "Makes E2E suites more stable by reducing dependency on live identity providers, seeded users, and fragile lower environments.",
+      tags: ["Playwright", "Mockserver", "RBAC testing", "JWT simulation"]
     }
   ];
 
   // GitHub Repositories
   const githubRepos = [
+    {
+      name: "agentic-workspace",
+      description: "Context-aware QA workspace for coding agents, combining task briefs, repo context, reusable QA playbooks, API evidence, and verification guardrails.",
+      language: "TypeScript",
+      updated_at: "2026-07-31T09:30:00Z",
+      html_url: "https://github.com/balajiregt/agentic-workspace"
+    },
     {
       name: "myFinance",
       description: "Finfolio: self-hosted, single-file Indian portfolio tracker with AI insights, Gmail expense tracking, live NAV sync, gold tracking, reminders, and privacy-first local storage.",
@@ -194,6 +201,13 @@ const Portfolio = () => {
   // Medium Articles (Categorized) - Updated with all articles and links
   const mediumArticles = {
     productEngineering: [
+      {
+        title: "Agentic API Automation: A Context-Aware Workspace for QA Teams",
+        category: "Agentic QA",
+        date: "2026-07-31",
+        description: "A practical framework for using coding agents in QA/API automation with task context, repo topology, reusable playbooks, API evidence, and verification guardrails.",
+        link: "https://medium.com/@kbalaji.kks/agentic-api-automation-a-context-aware-workspace-for-qa-teams-6ba70f82d5d0"
+      },
       {
         title: "Scaling Playwright E2E Tests with a Role-Aware Mockserver",
         category: "SDET Architecture",
